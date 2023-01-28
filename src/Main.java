@@ -23,23 +23,13 @@ public class Main {
         String[] numbers = input.split(" ");
         int a = Integer.parseInt(numbers[0]);
         int b = Integer.parseInt(numbers[2]);
-        int result = 0;
-        switch (numbers[1]) {
-            case "+":
-                result = a + b;
-                break;
-            case "*":
-                result = a * b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "/":
-                result = a / b;
-                break;
-            default:
-                throw new ArithmeticException();
-        }
+        int result = switch (numbers[1]) {
+            case "+" -> a + b;
+            case "*" -> a * b;
+            case "-" -> a - b;
+            case "/" -> a / b;
+            default -> throw new ArithmeticException();
+        };
         if (numbers.length > 3) {
             throw new ArithmeticException();
         }
@@ -52,23 +42,16 @@ public class Main {
         int b = Integer.parseInt(convert(numbers[2]));
         int result = 0;
         switch (numbers[1]) {
-            case "+":
-                result = a + b;
-                break;
-            case "*":
-                result = a * b;
-                break;
-            case "-":
+            case "+" -> result = a + b;
+            case "*" -> result = a * b;
+            case "-" -> {
                 result = a - b;
                 if (result == 0) {
                     throw new ArithmeticException();
                 }
-                break;
-            case "/":
-                result = a / b;
-                break;
-            default:
-                throw new ArithmeticException();
+            }
+            case "/" -> result = a / b;
+            default -> throw new ArithmeticException();
         }
         if (numbers.length > 3) {
             throw new ArithmeticException();
