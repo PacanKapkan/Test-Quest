@@ -10,7 +10,7 @@ public class Main{
     }
     public static String calcArab(String input) {
         String[] numbers = input.split(" ");
-        int result = 0;
+        int result;
         if (numbers.length == 3){
         int a = Integer.parseInt(numbers[0]);
         int b = Integer.parseInt(numbers[2]);
